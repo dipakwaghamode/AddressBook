@@ -1,52 +1,96 @@
 package com.addressbook.model;
-class Person{
-	String emailid;
-	String name;
-	double mobileNo;
-	String city;
-	String zipcode;
-	String state;
-	public String getEmailId(){
-	return this.emailid;
-	}
-	public String getName(){
-	return this.name;
-	}
-	public double getMobileNo(){
-	return this.mobileNo;
 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Person implements Comparable<Person>
+{
+	String FirstName;
+	String LastName;
+	String EmailId;
+	String State;
+	String City;
+	int ZipCode;
+	long MobileNumber;
+	public Person(){}
+
+	public Person(String FirstName,String LastName,String EmailId,String State,String City,int ZipCode,long MobileNumber){
+		this.FirstName=FirstName;
+		this.LastName=LastName;
+		this.EmailId=EmailId;
+		this.State=State;
+		this.City=City;
+		this.ZipCode=ZipCode;
+		this.MobileNumber=MobileNumber;
+	}
+
+	public void setFirstName(String FirstName){
+		this.FirstName=FirstName;
+	}
+        public void setLastName(String LastName){
+                this.LastName=LastName;
+        }
+        public void setEmailId(String EmailId){
+                this.EmailId=EmailId;
+        }
+        public void setState(String State){
+                this.State=State;
+        }
+        public void setCity(String City){
+                this.City=City;
+        }
+        public void setZipCode(int ZipCode){
+                this.ZipCode=ZipCode;
+        }
+        public void setMobileNumber(long MobileNumber){
+                this.MobileNumber=MobileNumber;
+        }
+
+	public String getFirstName(){
+		return this.FirstName;
+	}
+
+	public String getLastName(){
+		return this.LastName;
+	}
+
+	public String getEmailId(){
+		return this.EmailId;
+	}
+
+	public String getState(){
+		return this.State;
 	}
 
 	public String getCity(){
-	return this.city;
-
+		return this.City;
 	}
 
-	public String getZipCode(){
-	return this.zipcode;
-
-	}
-	public String getState(){
-	return this.state;
+	public int getZipCode(){
+		return this.ZipCode;
 	}
 
-	public void setemailId(String emailid){
-	this.emailid=emailid;
 
+	public long getMobileNumber(){
+		return this.MobileNumber;
 	}
-	public void setname(String name){
-	this.name=name;
 
+	public String toString(){
+		return this.FirstName+" "+this.LastName+" "+this.EmailId+" "+this.State+" "+this.City+" "+this.ZipCode+" "+this.MobileNumber;
 	}
-	public void setcity(String city){
-	this.city=city;
 
-	}
-	public void setstate(String state){
-	this.state=state;
-	}
-	public void setmobileNo(double mobileNo){
-	this.mobileNo=mobileNo;
-	}
-	
+	public int compareTo(Person person)
+        {
+                        if(this.getZipCode() > person.getZipCode())
+                        {
+                                return 1;
+                        }
+                        if(this.getZipCode() < person.getZipCode())
+                        {
+                                return -1;
+                        }
+                        return 0;
+
+        }
+
 }
